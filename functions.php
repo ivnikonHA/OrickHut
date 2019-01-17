@@ -27,3 +27,9 @@ function format_price($price) {
 function esc($str) {
     return htmlspecialchars($str);
 }
+
+function time_to_midnight() {
+    $hours = 24 - date('H');
+    $minuts = 60 - date('i');
+    return $hours.':'.$minuts;
+}
