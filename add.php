@@ -32,8 +32,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if(isset($_FILES['picture']['name'])) {
-        $path = $_FILES['picture']['name'];
-        $res = move_uploaded_file($_FILES['picture']['tmp_name'], 'img/'.$path);
+        $path = 'img/'.$_FILES['picture']['name'];
+        $res = move_uploaded_file($_FILES['picture']['tmp_name'], $path);
     }
     if(isset($path)) {
         $lot['picture'] = $path;
