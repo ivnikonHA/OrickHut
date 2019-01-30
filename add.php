@@ -5,23 +5,25 @@ require_once 'data.php';
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $lot = $_POST;
 
-    $required = ['lot-name','category','message','lot-rate','lot-step','lot-date'];
-    $numbers = ['lot-rate','lot-step'];
+    // var_dump($_POST);
+
+    $required = ['name','category','message','price','lot-step','lot-date'];
+    $numbers = ['price','lot-step'];
     $dict = [
-        'lot-name' => 'Название',
+        'name' => 'Название',
         'category' => 'Категория',
         'message' => 'Описание',
-        'lot-rate' => 'Начальная цена',
+        'price' => 'Начальная цена',
         'lot-step' => 'Шаг ставки',
         'lot-date' => 'Дата окончания торгов'
     ];
     $errors = [];
 
-    // foreach($numbers as $key) {
-    //     if(!filter_var($key, FILTER_VALIDATE_INT|FILTER_VALIDATE_FLOAT)) {
-    //         $errors[$key] = 'Это должно быть числом.';
-    //     }
-    // }
+    foreach($numbers as $key) {
+        if(!is_numeric($lot[$key])) {
+            $errors[$key] = 'Это должно быть числом.';
+        }
+    }
 
     foreach($required as $key) {
         if(empty($_POST[$key])) {
@@ -29,15 +31,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // if(isset($_FILES['photo2']['name'])) {
-    //     $path = $_FILES['photo2']['name'];
-    //     $res = move_uploaded_file($_FILES['photo2']['tmp_name'], 'img/'.$path);
-    // }
-    // if(isset($path)) {
-    //     $lot['path'] = $path;
-    // }
+    if(isset($_FILES['picture']['name'])) {
+        $path = $_FILES['picture']['name'];
+        $res = move_uploaded_file($_FILES['picture']['tmp_name'], 'img/'.$path);
+    }
+    if(isset($path)) {
+        $lot['picture'] = $path;
+    }
 
     if(count($errors)) {
+        // var_dump($errors);
         $page_content = renderTemplate('templates/add-template.php',
             [
                 'lot' => $lot,
