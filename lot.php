@@ -7,16 +7,26 @@ $lot = null;
 if(isset($_GET['lot_id'])) {
     $lot_id = $_GET['lot_id'];
 
-    foreach($lots as $item) {
-        if($item['id'] == $lot_id) {
-            $lot = $item;
-            break;
-        }
-    }
+    // foreach($lots as $item) {
+    //     if($item['id'] == $lot_id) {
+    //         $lot = $item;
+    //         break;
+    //     }
+    // }
+    $lot = get_lot_by_id($lot_id,$lots);
 }
 
 if(!$lot) {
     http_response_code(404);
+}
+
+$history = null;
+if(isset($_COOKIE['history'])) {
+    $history = json_decode($_COOKIE['history']);
+}
+if($history == null || !in_array($lot_id,$history)) {
+    $history[] = $lot_id;
+    setcookie('history',json_encode($history));
 }
 
 $page_content = renderTemplate('templates/lot.php', [
