@@ -33,3 +33,11 @@ function time_to_midnight() {
     $minuts = 60 - date('i');
     return $hours.':'.$minuts;
 }
+
+function get_lot_by_id($id,$lots) {
+    foreach($lots as $item) {
+        if($item['id'] == $id) {
+            return $item;
+        }
+    }
+}
