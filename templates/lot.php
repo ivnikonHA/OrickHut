@@ -40,6 +40,7 @@
         посмотрите на Вашу доску и улыбнитесь, крутая графика от Шона Кливера еще никого не оставляла
         равнодушным.</p>
     </div>
+    <?php if($is_auth): ?>
     <div class="lot-item__right">
       <div class="lot-item__state">
         <div class="lot-item__timer timer">
@@ -119,6 +120,7 @@
         </table>
       </div>
     </div>
+    <?php endif; ?>
   </div>
   <!-- <?php else: ?>
     <h2>Лот с этим ID не найден.</h2>

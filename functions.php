@@ -41,3 +41,12 @@ function get_lot_by_id($id,$lots) {
         }
     }
 }
+
+function get_user_by_email($email,$users) {
+    foreach($users as $item) {
+        if($item['email'] == $email) {
+            return $item;
+        }
+    }
+    return false;
+}

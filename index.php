@@ -2,7 +2,7 @@
 date_default_timezone_set("Europe/Moscow");
 require_once 'functions.php';
 require_once 'data.php';
-
+//session_start();
 $page_content = renderTemplate('templates/index.php', [
     'lots' => $lots,
     'category' => $category ]);
