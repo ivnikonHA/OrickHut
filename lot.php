@@ -31,7 +31,8 @@ if($history == null || !in_array($lot_id,$history)) {
 
 $page_content = renderTemplate('templates/lot.php', [
     'lot' => $lot,
-    'category' => $category ]);
+    'category' => $category,
+    'is_auth' => $is_auth ]);
 $layout_content = renderTemplate('templates/layout.php',[
     'title' => 'OrickHub - Lot page',
     'is_auth' => $is_auth,

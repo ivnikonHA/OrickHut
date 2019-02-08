@@ -2,6 +2,11 @@
 require_once 'functions.php';
 require_once 'data.php';
 
+if(!$is_auth) {
+    http_response_code(403);
+    exit;
+}
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $lot = $_POST;
 

@@ -1,8 +1,8 @@
 <?php
+session_start();
+$is_auth = isset($_SESSION['user']);
 
-$is_auth = rand(0, 1);
-
-$user_name = 'ivnikon'; // укажите здесь ваше имя
+$user_name = $_SESSION['user']['name']??''; // укажите здесь ваше имя
 $user_avatar = 'img/user.jpg';
 
 $category = ['Доски и лыжи', 'Крепления', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
