@@ -53,8 +53,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 'errors' => $errors
             ]);
     } else {
-        $page_content = renderTemplate('templates/lot.php',
+        $page_content = renderTemplate('templates/lot-template.php',
         [
+            'is_auth' => $is_auth,
             'lot' => $lot,
             'category' => $category
         ]);
@@ -66,7 +67,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             ]);
 }
 
-$layout_content = renderTemplate('templates/layout.php',[
+$layout_content = renderTemplate('templates/layout-template.php',[
     'title' => 'Добавление лота',
     'is_auth' => $is_auth,
     'user_name' => $user_name,

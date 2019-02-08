@@ -29,11 +29,11 @@ if($history == null || !in_array($lot_id,$history)) {
     setcookie('history',json_encode($history));
 }
 
-$page_content = renderTemplate('templates/lot.php', [
+$page_content = renderTemplate('templates/lot-template.php', [
     'lot' => $lot,
     'category' => $category,
     'is_auth' => $is_auth ]);
-$layout_content = renderTemplate('templates/layout.php',[
+$layout_content = renderTemplate('templates/layout-template.php',[
     'title' => 'OrickHub - Lot page',
     'is_auth' => $is_auth,
     'user_name' => $user_name,
