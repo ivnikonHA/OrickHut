@@ -1,3 +1,4 @@
+<main>
 <nav class="nav">
     <ul class="nav__list container">
       <?php foreach ($category as $key => $val): ?>
@@ -43,3 +44,4 @@
         <li class="pagination-item pagination-item-next"><a href="#">Вперед</a></li>
     </ul>
 </div>
+</main>

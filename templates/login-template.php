@@ -1,3 +1,4 @@
+<main>
 <nav class="nav">
     <ul class="nav__list container">
       <?php foreach ($category as $key => $val): ?>
@@ -21,3 +22,4 @@
     </div>
     <button type="submit" class="button">Войти</button>
 </form>
+</main>
