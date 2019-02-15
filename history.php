@@ -16,7 +16,7 @@ if($history_id) {
         'lots' => $history,
         'category' => $category ]);
 }
-$layout_content = renderTemplate('templates/layout.php',[
+$layout_content = renderTemplate('templates/layout-template.php',[
     'title' => 'OrickHub - History',
     'is_auth' => $is_auth,
     'user_name' => $user_name,

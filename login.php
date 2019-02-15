@@ -43,7 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 // $page_content = renderTemplate('templates/login-template.php', [
 //     'lots' => $lots,
 //     'category' => $category ]);
-$layout_content = renderTemplate('templates/layout.php',[
+$layout_content = renderTemplate('templates/layout-template.php',[
     'title' => 'OrickHub - Login',
     'is_auth' => $is_auth,
     'user_name' => $user_name,
