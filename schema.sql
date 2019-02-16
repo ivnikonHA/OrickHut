@@ -7,9 +7,9 @@ CREATE TABLE categories (
 CREATE TABLE lots (
   id              INT AUTO_INCREMENT PRIMARY KEY,
   lot_created     DATETIME,
-  lot_name        CHAR(30),
+  lot_name        CHAR(50),
   lot_description CHAR(100),
-  lot_image       CHAR(30),
+  lot_image       CHAR(50),
   lot_price       DECIMAL,
   lot_finished    DATETIME,
   lot_price_step  DECIMAL,
