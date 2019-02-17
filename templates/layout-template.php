@@ -35,7 +35,7 @@
                 <?php else: ?>
                     <ul class="user-menu__list">
                         <li class="user-menu__item">
-                            <a href="#">Регистрация</a>
+                            <a href="sign-up.php">Регистрация</a>
                         </li>
                         <li class="user-menu__item">
                             <a href="/OrickHut/login.php">Вход</a>
@@ -45,10 +45,7 @@
             </nav>
         </div>
     </header>
-
-
-       <?=$content; ?>
-
+    <?=$content; ?>
 </div>
 
 <footer class="main-footer">
@@ -57,7 +54,7 @@
             <!--заполните этот список из массива категорий-->
             <?php foreach ($category as $key => $val): ?>
                 <li class="nav__item">
-                    <a href="pages/all-lots.html"><?=$val; ?></a>
+                    <a href="pages/all-lots.html"><?=$val['category_name']; ?></a>
                 </li>
             <?php endforeach; ?>
         </ul>

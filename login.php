@@ -1,7 +1,8 @@
 <?php
 require_once 'functions.php';
 require_once 'data.php';
-require_once 'user_data.php';
+//require_once 'user_data.php';
+require_once 'db_connect.php';
 
 //session_start();
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -21,8 +22,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             'errors' => $errors,
             'category' => $category ]);
     } else {
-        $user = get_user_by_email($form['email'],$users);
-        if(!$user || $user['password'] !== $form['password']) {
+        $email = $form['email'];
+        $sql =  "SELECT * FROM users WHERE user_email = '$email'";
+        $res = mysqli_query($link, $sql);
+        $user = mysqli_fetch_assoc($res);
+        $password_hash = $user['user_password'];
+        if(!password_verify($form['password'], $password_hash)) {
             $errors['password'] = 'Вы ввели неправильный пароль';
             $page_content = renderTemplate('templates/login-template.php', [
                 'form' => $form,
@@ -47,7 +52,7 @@ $layout_content = renderTemplate('templates/layout-template.php',[
     'title' => 'OrickHub - Login',
     'is_auth' => $is_auth,
     'user_name' => $user_name,
-    'user_avatar' => $user_avatar,
+    'user_avatar' => 'img\\' . $user_avatar,
     'content' => $page_content,
     'category' => $category ]);
 
