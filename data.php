@@ -2,8 +2,8 @@
 session_start();
 $is_auth = isset($_SESSION['user']);
 
-$user_name = $_SESSION['user']['name']??''; // укажите здесь ваше имя
-$user_avatar = 'img/user.jpg';
+$user_name = $_SESSION['user']['user_name']??''; // укажите здесь ваше имя
+$user_avatar = $_SESSION['user']['user_avatar']??'';
 
 $category = ['Доски и лыжи', 'Крепления', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
 $lots = [
