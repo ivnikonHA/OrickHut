@@ -50,3 +50,10 @@ function get_user_by_email($email,$users) {
     }
     return false;
 }
+
+function connect_to_db() {
+    $link = mysqli_connect('localhost', 'root', '', 'oh');
+    if($link == false) {
+        print("Error: ".mysqli_connect|_error());
+    }
+}
