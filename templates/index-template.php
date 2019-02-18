@@ -14,7 +14,7 @@
     <!--заполните этот список из массива категорий-->
     <?php foreach ($category as $key => $val): ?>
         <li class="promo__item">
-            <a class="promo__link" href="pages/all-lots.html"><?=$val; ?></a>
+            <a class="promo__link" href="pages/all-lots.html"><?=$val['category_name']; ?></a>
         </li>
     <?php endforeach; ?>
 </ul>
